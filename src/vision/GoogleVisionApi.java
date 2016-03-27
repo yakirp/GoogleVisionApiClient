@@ -26,13 +26,15 @@ import okhttp3.Response;
 
 public class GoogleVisionApi {
 
-	private static final String API_KEY = "";
+	private String api_key = "";
 	private OkHttpClient client;
 	private JsonReqeust jReqeust;
 
-	public GoogleVisionApi() {
+	public GoogleVisionApi(String key) {
 		jReqeust = new JsonReqeust();
 		client = new OkHttpClient();
+		api_key = key;
+		
 	}
 
 	public void addImage(String url) throws IOException {
@@ -78,7 +80,7 @@ public class GoogleVisionApi {
 		MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("text/x-markdown; charset=utf-8");
 
 		Request request = new Request.Builder()
-				.url("https://vision.googleapis.com/v1/images:annotate?key="+API_KEY)
+				.url("https://vision.googleapis.com/v1/images:annotate?key="+api_key)
 				.post(RequestBody.create(MEDIA_TYPE_MARKDOWN, toJson())).build();
 
 		Response response = client.newCall(request).execute();

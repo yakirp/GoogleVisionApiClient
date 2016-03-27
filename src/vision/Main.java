@@ -18,7 +18,7 @@ public class Main {
 		File file = new File("c:\\vision\\input_bar.jpg");
 	 
 	  
-		GoogleVisionApi api = new GoogleVisionApi();
+		GoogleVisionApi api = new GoogleVisionApi("asdsad");
 		api.addImage("http://images1.ynet.co.il/PicServer4/2016/03/21/6891158/68911530991498640360no.jpg");
 	 
 		
